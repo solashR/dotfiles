@@ -1,0 +1,99 @@
+[push]
+	default = current
+[commit]
+     #template = /home/rsolash/.gitmessage.txt
+[core]
+	whitespace = trailing-space,space-before-tab
+	preloadindex = true
+	pager = less -FXR
+	excludesfile = /Users/rsolash/.gitignore_global
+[color]
+	branch = auto
+	diff = auto
+	grep = auto
+	interactive = auto
+	pager = true
+	showbranch = auto
+	status = auto
+	ui = auto
+[color "branch"]
+	remote = red
+[color "grep"]
+	external = --color=always
+[color "status"]
+	nobranch = black red
+[diff]
+	mnemonicprefix = true
+	renames = copy
+[gc]
+	packrefs = true
+	reflogexpire = 180
+	reflogexpireunreachable = 180
+	rerereresolved = 180
+	rerereunresolved = 90
+[gui]
+	commitmsgwidth = 72
+	diffcontext = 15
+[interactive]
+	singlekey = true
+[merge]
+	conflictstyle = diff3
+	tool = diffuse3
+[pack]
+	compression = 9
+	threads = 0
+[rebase]
+	stat = true
+	autosquash = true
+[receive]
+	denydeletes = true
+	denycurrentbranch = refuse
+	denynonfastforwards = true
+[rerere]
+	enabled = true
+[pager]
+	status = true
+[help]
+	autocorrect = 0
+[user]
+	name = Ran Solash
+	email = rans@iguazio.com
+[alias]
+	ci = commit
+	co = checkout
+	stat = status -s
+	undo = reset --hard
+	changes = diff --name-status -r
+	diffstat = diff --stat -r
+	konflict = !gitk --merge
+	whois = !sh -c 'git log -i -1 --pretty=\"format:%an <%ae>%n\" --author=\"$1\"' -
+	whatis = show -s --pretty='tformat:%h (%s, %ad)' --date=short
+	alias = "!sh -c '[ $# = 2 ] && git config --global alias.\"$1\" \"$2\" && exit 0 || echo \"usage: git alias <new alias> <original command>\" >&2 && exit 1'"
+	aliases = !git config --get-regexp 'alias.*' | colrm 1 6 | sed 's/[ ]/ = /'
+    lg = log --color --pretty=format:'%C(auto)%h %Cred %<(10,trunc)%an %Creset%C(auto)%s %Cgreen(%cr,%ar) %Creset%C(auto)%d'
+    lgg = log --graph --abbrev-commit --decorate --date=relative --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)'
+	propose = !\"/Users/rsolash/Desktop/ef-code/git-sling/git-propose.sh\"
+	unpropose = !/Users/rsolash/Desktop/ef-code/git-sling/git-delete-sling-branch.sh proposed
+	delete-rejected = !/Users/rsolash/Desktop/ef-code/git-sling/git-delete-sling-branch.sh rejected
+[core]
+	editor = vim
+[github]
+	user = rans1
+
+[sendemail]
+	smtpdomain = iguazio.com
+	smtpserver = smtp.gmail.com
+	smtpencryption = ssl
+	smtpserverport = 465
+	smtpuser = ransh@iguazio.com
+
+[http]
+	sslVerify = false
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[credential]
+	helper = store
